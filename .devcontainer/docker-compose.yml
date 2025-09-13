@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  odoo19-demo:
+    container_name: odoo19-demo
+    # image: mjavint/odoodev:19.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace
+      - ${ODOO_SERVER}:/workspace/odoo.19.0:ro
+      - ${ENTERPRISE_ADDONS}:/workspace/enterprise.19.0:ro
+      - odoo-data:/var/lib/odoo
+    command: sleep infinity
+    ports:
+      - "8069:8069"
+      - "8071:8071"
+      - "8072:8072"
+    networks:
+      - shared-net
+
+  pgdb:
+    image: postgres:17.0-alpine
+    restart: unless-stopped
+    container_name: pgdb
+    volumes:
+      - pgdb-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+    networks:
+      - shared-net
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@example.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - shared-net
+
+volumes:
+  odoo-data:
+  pgdb-data:
+  pgadmin-data:
+
+networks:
+  shared-net:
+    external: true
+    name: shared-net
