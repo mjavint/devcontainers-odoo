@@ -1,5 +1,7 @@
 # Odoo 19 Devcontainers
 
+[![Watch the video](https://github.com/mjavint/devcontainers-odoo/blob/main/img/miniatura.png?raw=true)](https://youtu.be/I4vswyVg2K0)
+
 ## Instalación y Configuración
 
 1. Clonar el repositorio
@@ -39,3 +41,4 @@ python odoo.19.0/odoo-bin -c odoo.conf
 - [Docker Desktop](https://docs.docker.com/get-started/get-docker/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Ultraviolet (UV) y Ruff](https://docs.astral.sh/)
+- [Devcontainers](https://containers.dev)
