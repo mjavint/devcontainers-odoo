@@ -1,8 +1,8 @@
 # Odoo 19 Devcontainers
 
-## How to install
+## Instalación y Configuración
 
-1. Clone repository
+1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/mjavint/devcontainers-odoo
@@ -34,7 +34,7 @@ uv pip install -r odoo.19.0/requirements.txt
 python odoo.19.0/odoo-bin -c odoo.conf
 ```
 
-## Enlaces utiles
+## Enlaces útiles
 
 - [Docker Desktop](https://docs.docker.com/get-started/get-docker/)
 - [Visual Studio Code](https://code.visualstudio.com/)
