@@ -8,5 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+.vscode
+uv.lock
 enterprise.19.0
 odoo.19.0
