@@ -1,4 +1,4 @@
-FROM  python:3.12-slim-bookworm AS base
+FROM  python:3.8-slim-bookworm AS base
 
 # Environment
 ENV PYTHONUNBUFFERED 1
@@ -11,10 +11,8 @@ SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
 # See https://github.com/$ODOO_SOURCE/blob/$ODOO_VERSION/debian/control
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    adduser \
     build-essential \
     fonts-liberation2 \
-    gsfonts \
     locales-all \
     gettext \
     git \
@@ -40,8 +38,6 @@ RUN apt-get update && \
     libblas-dev \
     libatlas-base-dev \
     zsh \
-    lsb-release \
-    rsync \
     && apt-get autoremove -yqq
 
 # Install rtlcss
@@ -87,7 +83,6 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /et
 # Clean system and remove unnecessary files
 RUN apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 
 # Stage 2: Final Image
 FROM base

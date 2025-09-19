@@ -24,7 +24,7 @@ source .venv/bin/activate
 3. Instalar dependencias de odoo
 
 ```bash
-uv pip install -r odoo.19.0/requirements.txt
+uv pip install -r requirements.txt
 ```
 
 4. Configurar el role odoo en la base de datos usando el servicio `pgadmin` instalado.
@@ -33,7 +33,7 @@ uv pip install -r odoo.19.0/requirements.txt
 5. Iniciar el servidor de odoo
 
 ```bash
-python odoo.19.0/odoo-bin -c odoo.conf
+python odoo.14.0/odoo-bin -c odoo.conf
 ```
 
 ## Enlaces útiles

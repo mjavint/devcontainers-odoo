@@ -1,16 +1,16 @@
 version: "3"
 
 services:
-  odoo19-demo:
-    container_name: odoo19-demo
-    # image: mjavint/odoodev:19.0
+  odoo14-demo:
+    container_name: odoo14-demo
+    # image: mjavint/odoodev:14.0
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - ..:/workspace
-      - ${ODOO_SERVER}:/workspace/odoo.19.0:ro
-      - ${ENTERPRISE_ADDONS}:/workspace/enterprise.19.0:ro
+      - ${ODOO_SERVER}:/workspace/odoo.14.0:ro
+      - ${ENTERPRISE_ADDONS}:/workspace/enterprise.14.0:ro
       - odoo-data:/var/lib/odoo
     command: sleep infinity
     ports:
